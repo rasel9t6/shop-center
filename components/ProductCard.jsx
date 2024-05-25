@@ -1,26 +1,36 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
-export default function ProductCard() {
+export default function ProductCard({ product }) {
+  const { title, description, thumbnail, category, price, discountPercentage } =
+    product;
+  const discountPrice = (price - (price * discountPercentage) / 100).toFixed(2);
   return (
     <div>
-      <div className="relative delay-150 w-180px lg:w-[270px] h-[205px] lg:h-[310px] bg-[#f8f8f8] bg-[url('./assets/products/iphone.jpg')] bg-cover bg-center transition-all duration-3000 ease-in-out transform"></div>
+      <Image
+        className='relative delay-150 w-180px lg:w-[270px] h-[205px] lg:h-[310px] bg-[#f8f8f8] bg-cover bg-center transition-all duration-3000 ease-in-out transform'
+        width={270}
+        height={310}
+        alt={description}
+        src={thumbnail}
+        style={{ height: 'auto' }}
+      />
       <h2 className='text-sm lg:text-base mt-2'>
         <Link
           className='text-base font-bold'
           href='./productPage.html'
         >
-          iPhone 9
+          {title}
         </Link>
         <span className='text-[#919090]'>
-          <Link href='./category.html'>(Smartphones)</Link>
+          <Link href='./category.html'>({category})</Link>
         </span>
       </h2>
-      <p className='text-[#919090] text-sm '>
-        An apple mobile which is nothing like apple
-      </p>
+      <p className='text-[#919090] text-sm '>{description}</p>
 
       <p className='text-rose-600 text-sm mt-4'>
-        <span className='text-[#919090] line-through'>$205.00</span> $195.00
+        <span className='text-[#919090] line-through'>${price}</span> $
+        {discountPrice}
       </p>
     </div>
   );

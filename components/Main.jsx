@@ -1,11 +1,20 @@
+'use client';
 import ProductCard from './ProductCard';
-
+import useFetch from '@/hooks/useFetch';
 export default function Main() {
+  const URL = `${process.env.NEXT_PUBLIC_BASE_URL}/products`;
+  const { data: products } = useFetch(URL);
+  console.log(products);
   return (
     <main>
       <section className='w-11/12 lg:w-10/12 max-w-7xl mx-auto py-10'>
         <div className='grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4 my-4 lg:my-10'>
-          <ProductCard />
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          ))}
         </div>
       </section>
       <section className='bg-[#ced3ca] py-5 lg:py-16'>
