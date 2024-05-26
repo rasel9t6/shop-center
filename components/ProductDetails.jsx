@@ -10,32 +10,32 @@ export default function ProductDetails() {
       <div className='mt-3 flex items-center justify-start gap-1'>
         <Image
           src='/assets/svg/star.svg'
-          width='20px'
-          height='20px'
+          width={20}
+          height={20}
           alt=''
         />
         <Image
           src='/assets/svg/star.svg'
-          width='20px'
-          height='20px'
+          width={20}
+          height={20}
           alt=''
         />
         <Image
           src='/assets/svg/star.svg'
-          width='20px'
-          height='20px'
+          width={20}
+          height={20}
           alt=''
         />
         <Image
           src='/assets/svg/star.svg'
-          width='20px'
-          height='20px'
+          width={20}
+          height={20}
           alt=''
         />
         <Image
           src='/assets/svg/star.svg'
-          width='20px'
-          height='20px'
+          width={20}
+          height={20}
           alt=''
         />
       </div>
